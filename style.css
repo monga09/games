@@ -14,6 +14,37 @@ body{position:relative; background:#000; ;}
 .dollar_n img {width:50%;}
 .dollar_n1 img {width:50%;}
 .dollar_n2 img {width:50%;}
+.dollar_n3 img {width:50%;}
+
+.dollar_n150 img {width:50%;}
+.dollar_n150 {
+   position: absolute;
+   top: 52%;
+   left: 35.5%;
+}
+
+.dollar_n100 img {width:50%;}
+.dollar_n100 {
+  position: absolute;
+    top: 44%;
+    left: 51.5%;
+}
+
+.dollar_n250 img {width:50%;}
+.dollar_n250 {
+  position: absolute;
+    top: 54%;
+    right: 29%;
+}
+
+
+.dollar_n300 img {width:50%;}
+.dollar_n300 {
+  position: absolute;
+ top: 63%;
+    right: 28%;
+}
+
 
 
 .dollar_n1 {
@@ -23,11 +54,22 @@ body{position:relative; background:#000; ;}
 }
 
 
+
+
+
 	.dollar_n2 {
    position: absolute;
-    top: 49%;
+    top: 54%;
     right: 36%;
 }
+
+	.dollar_n3 {
+   position: absolute;
+    top: 63%;
+        right: 35%;
+}
+
+
 
 .land img {
     width: 37%;
