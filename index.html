@@ -13,7 +13,11 @@
     <body>
      
 <body onresize='_pexresize()'>
-	<div onClick="javascript:window.close('','_parent','');" style="color:#fff; width:100px; height:40px; padding:20px; background:black; text-align:center; cursor:pointer;"> Close</div>
+
+<a href="javascript:window.open('','_self').close();" style="color: #fff;
+    float: right;
+    padding: 20px;">close</a>
+	
 	<canvas id='canvas' width='1280' height='720'></canvas>
 
 	
