@@ -14,7 +14,7 @@
      
 <body onresize='_pexresize()'>
 
-<a href="javascript:window.open('','_self').close();" style="color: #fff;
+<a  href ="#"  onclick="return open_a_window();"  style="color: #fff;
     float: right;
     padding: 20px;">close</a>
 	
@@ -66,7 +66,11 @@ function newGame() {
 	againprog = 0;
 }
 
-
+function open_a_window() 
+{
+   window.open('location', '_self', '');
+window.close();
+}
 
 function drawHeart(x,y,w) {
 	ctx.beginPath();
