@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <style>
+ #container {
+  text-align: center;
+}
+
+h1 {
+  font-family: Lobster;
+  font-size: 5em;
+  color:#E0F2F1;
+  margin-top:10px;
+}
+
+h3 {
+  font-family: Oswald;
+}
+
+h4 {
+  font-family: Bitter;
+  float: left;
+  padding: 5px;
+  text-align: right;
+}
+
+.btns {
+  font-family: Bitter;
+  width: 100px;
+  height: 50px;
+  background-color: #1D1F20;
+  color: white;
+  border: none;
+  margin: 10px;
+  border-radius: 5px;
+ 
+}
+
+.btns:hover {
+  background-color: #EEEEEE;
+  color: black;
+  font-weight: bold;
+}
+
+#raceTrack {
+  background: url('https://s21.postimg.org/7z4sr6x1j/road.jpg') center;
+  height: 330px;
+  border-right: dashed 10px white;
+  box-sizing: border-box;
+  margin: 0;
+  
+}
+
+.car {
+    display: block;
+    position: relative;
+}
+
+
+#raceInfoContainer {
+  width: 80%;
+  margin: 40px auto 0;
+  background: #333;
+  height: 170px;
+}
+
+#raceInfoContainer h2 {
+  color: white;
+  text-transform: uppercase;
+  border-bottom: solid 1px white;
+  padding: 20px 0;
+}
+
+.raceInfo {
+  font-size: 24px;
+  font-weight: bold;
+  width: 50%;
+  color: #E0E0E0;
+  float: left;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body{
+ background-color:#424242;
+}
+
+#car1{
+  top:30px;
+  left:10px;
+}
+
+#car2{
+  top:100px;
+  left:10px;
+}
+
+.raceInfo span {
+    display: block;
+    font-weight: normal;
+    font-size: 18px;
+    color: white;
+}
+
+#raceInfo1{
+  color:red;
+  font-family:Bitter;
+}
+
+#raceInfo2{
+  color:green;
+  font-family:Bitter;
+}
+
+#result{
+  font-family:Oswald;
+}
+ </style>
+
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+</head>
+
+
+	
+
+<body>
+
+  <div id="container">
+
+    <div>
+      <h1 id="gameTitle">Car Race</h1>
+
+      <button class="btns" id="go">Race !</button>
+      <button class="btns" id="reset">Reset</button>
+
+      <br>
+      <br>
+    </div>
+    
+    <div id="raceTrack">
+      <img src="car1.png" id="car1" class="car">
+      
+
+      <img src="car2.png" id="car2" class="car">
+    </div>
+    
+    
+    <br>
+      <div id="raceInfoContainer"  class="clearfix">
+            <h2 id="result">Results</h2>
+            <div id="raceInfo1" class="raceInfo">Car 1<span></span></div>
+            <div id="raceInfo2" class="raceInfo">Car 2<span></span></div>
+        </div>
+        
+    
+    
+  </div>
+
+<script>
+
+
+$("#go").click(function(){
+  
+  //function to check which car is winner
+  function IsCompleted(){
+  
+  if (isCompleted == false){
+      //if no car is won yet 
+      isCompleted = true; // turn to true
+    }else{
+      place ='second';
+    }
+}
+
+  
+  
+  //car width
+  var carWidth = $("#car1").width ();
+  
+  //browser width
+  var carTrackWidth = $(window).width() - carWidth -20;
+  
+  var raceTime1 = Math.floor ((Math.random() *5000) +1) ;
+
+  var raceTime2 = Math.floor ((Math.random() *5000) +1);
+  
+  var isCompleted = false;
+  var place = 'first';
+  
+  $('#car1').animate({
+    left: carTrackWidth
+    
+  }, raceTime1, function(){
+    
+    IsCompleted();
+      raceTime1 = Math.floor (raceTime1 / 60);//convert milliseconds to seconds
+      raceTime1 = raceTime1.toFixed(0);
+    $('#raceInfo1 span').text( 'Finished in ' + place + ' place and clocked in at ' + raceTime1 + ' seconds!' );
+    
+  });
+  
+  $('#car2').animate({
+    left: carTrackWidth
+    
+  }, raceTime2, function(){
+    
+    IsCompleted();
+      raceTime2 = Math.floor (raceTime2 / 60);
+      raceTime2 = raceTime2.toFixed(0);
+    $('#raceInfo2 span').text( 'Finished in ' + place + ' place and clocked in at ' + raceTime2 + ' seconds!' );
+    
+  });
+  
+});
+
+//Reset button 
+$("#reset").click(function(){
+  $(".car").css("left","10px");
+  $(".raceInfo span").text('');
+});
+</script>
+</body>
+</html>
